@@ -3,30 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/sign-up.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style/sign-up.css">
     <title>Rostie - Cadastro</title>
 </head>
 <body>
     <div class="conteiner">
         <div class="left-side">
             <a href="home.html"><img src="../images/logo.png" alt="Logo" class="logo"></a>
-            <img src="../images//images/female chef-amico.svg" alt="Foto Ilustrativa de Chefe Cozinhando" class="vetor">
+            <img src="../images/pastry chef-rafiki.svg" alt="Foto Ilustrativa de Chefe Cozinhando" class="vetor">
         </div>
         <div class="right-side">
             <div class="right-top">
             Já tem uma conta? <a href="login.html" class="btn-login">Fazer Login</a>
             </div>
 
-            <h1>Bem vindo ao <span>Rostie</span></h1>
-            <h3>Realize seu Cadastro:</h3>
+            <h1>Bem-vindo(a) ao <span>Rostie</span></h1>
+            <h3 class="subtitle">Realize seu Cadastro:</h3>
             <form class="needs-validation" novalidate>
 
                 <div class="mb-3" style="display: flex; flex-direction: column;">
                     <label for="nome" class="form-label">Nome:</label>
                     <input type="text" class="form-control" placeholder="Digite seu nome" id="nome" name="nome" required>
                     <div class="invalid-feedback">
-                        Nome inválido!!
+                        Nome inválido!
                     </div>
                 </div>
 
@@ -34,15 +34,18 @@
                     <label for="email" class="form-label">E-mail:</label>
                     <input type="email" class="form-control" placeholder="Digite seu e-mail" id="email" name="email" required>
                     <div class="invalid-feedback">
-                        Email inválido!!
+                        Email inválido!
                     </div>
-                </div>    
+                </div>
                 
                 <div class="mb-3" style="display: flex; flex-direction: column;">
                     <label for="senha" class="form-label" >Digite sua Senha:</label>
                     <input type="password" class="form-control" placeholder="Digite sua senha" id="senha" name="senha" required>
                     <div class="invalid-feedback">
-                        A senha é inválida!!
+                            <li>Pelo menos 8 caracteres de comprimento.</li>
+                            <li>Deve conter uma combinação de letras maiúsculas e minúsculas.</li>
+                            <li>Inclua pelo menos um número.</li>
+                            <li>Inclua pelo menos um caractere especial (por exemplo, !, @, #).</li>
                     </div>
                 </div>
 
@@ -50,15 +53,15 @@
                     <label for="senha" class="form-label" >Confirme sua Senha:</label>
                     <input type="password" class="form-control" placeholder="Confirme sua senha" id="confirmaSenha" name="confirmasenha" required>
                     <div class="invalid-feedback">
-                        As senhas não são idênticas!!
+                        As senhas não são idênticas!
                     </div>
                 </div>
 
                 <div class="ultimaVerificacao">
                     <input type="checkbox" class="form-check-input" id="aceitar-termos" name="aceitar-termos" required>
-                    <label for="aceitar-termos">Eu li e concordo com os <a href="" class="link">Termos e Condições</a> do site.</label>
+                    <label for="aceitar-termos">Eu li e concordo com os <a href="../pages/politcs-privacy.html" class="link">Termos e Condições</a> do site.</label>
                     <div class="invalid-feedback">
-                        Você tem que aceitar os termos!!
+                        Para concluir o cadastro, é necessário aceitar os Termos de Serviço.
                     </div>
                 </div>
 
@@ -67,11 +70,14 @@
                 </div>
 
                 <div id="erro-interno" class="feedback-box">
-                    <p class="feedback-text">Error!! Verifique os dados!</p>
+                    <p class="feedback-text">Error! Verifique os dados!</p>
                 </div>
 
                 <button type="submit" value="cadastrar"> ENTRAR</button>
             </form>
+            <div class="right-bottom">
+                Já tem uma conta? <a href="login.html" class="btn-login">Fazer Login</a>
+                </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
@@ -133,8 +139,7 @@
                     body: JSON.stringify(dados),
                     headers:{
                         "Content-Type": "application/json"
-                    },
-                    credentials: 'include'
+                    }
                 })
                 .then(resposta => resposta.json())
                 .then(resultado => {
