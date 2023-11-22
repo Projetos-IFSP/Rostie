@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Contato</title>
+      <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+      <link rel="stylesheet" href="contact.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   <body>
+    <a href=""><i class='bx bxs-chevron-left'></i></a>
+    <div class="container">
+        <div class="text">Deixe sua mensagem</div>
+        <form id="contactForm">
+           <div class="form-row">
+              <div class="input-data">
+                 <input type="text" id="firstName" required>
+                 <div class="underline"></div>
+                 <label for="firstName">Nome</label>
+              </div>
+              <div class="input-data">
+                 <input type="text" id="lastName" required>
+                 <div class="underline"></div>
+                 <label for="lastName">Sobrenome</label>
+              </div>
+           </div>
+           <div class="form-row">
+              <div class="input-data">
+                 <input type="text" id="email" required>
+                 <div class="underline"></div>
+                 <label for="email">Email</label>
+              </div>
+              <div class="input-data">
+                 <input type="text" id="favoriteRecipe" required>
+                 <div class="underline"></div>
+                 <label for="favoriteRecipe">Sua receita predileta</label>
+              </div>
+           </div>
+           <div class="form-row">
+              <div class="input-data textarea">
+                 <textarea id="message" rows="8" cols="80" required></textarea>
+                 <br />
+                 <div class="underline"></div>
+                 <label for="message">Escreva sua mensagem</label>
+                 <button type="submit" onclick="submitForm()">
+                    Enviar
+                 </button>
+                 <br />
+                 
+                 </div>
+              </div>
+           </div>
+        </form>
+     </div>
+
+     <script>
+        function submitForm() {
+            // Obter os valores dos campos
+            var nome = document.getElementById("nome").value;
+            var sobrenome = document.getElementById("sobrenome").value;
+            var email = document.getElementById("email").value;
+            var favoriteRecipe = document.getElementById("favoriteRecipe").value;
+            var message = document.getElementById("message").value;
+
+            // Fazer algo com os valores (por exemplo, enviar para um servidor)
+            console.log("Nome: " + firstName);
+            console.log("Sobrenome: " + lastName);
+            console.log("Email: " + email);
+            console.log("Receita predileta: " + favoriteRecipe);
+            console.log("Mensagem: " + message);
+        }
+     </script>
+
+   </body>
+</html>
