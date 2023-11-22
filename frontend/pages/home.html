@@ -59,20 +59,11 @@
         </div>
       </div>
     </div>
-    <div class="recipess-section">
+    <div class="recipes-section">
     <h2>Receitas Populares</h2>
-    <div id="grid-container">
-      <div class="grid-item"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item"></div>
-      <div class="grid-item"></div>
-  </div>
-  <button class="recipe-button"><a href="./recipes.html">Ver mais</a></button>
+    <div id="grid-container"></div>
+      
+    <button class="recipe-button"><a href="./recipes.html">Ver mais</a></button>
 </div>
 <div class="footer">
   <div class="newsletter">
@@ -93,5 +84,33 @@
     <p>© Copyright 2023 - Rostie</p>
   </ul>
 </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        function adicionarGridItem(data) {
+          let container = document.querySelector("#grid-container");
+          console.log(container);
+          data.forEach(item => {
+            const divGridItem = document.createElement('div');
+            divGridItem.classList.add('grid-item');
+
+            const image = `../images/${item.image}`;
+            
+            divGridItem.style.backgroundImage = `url(${image})`;
+
+            container.appendChild(divGridItem);
+          });
+        }
+
+        fetch("http://localhost:5752/receita", {
+          method: "GET",
+          credentials: 'include'
+        })
+        .then(resposta => resposta.json())
+        .then(data => {
+          adicionarGridItem(data);
+        })
+        .catch(error => console.error('Erro na requisição:', error));
+      });
+    </script>
 </body>
 </html>
